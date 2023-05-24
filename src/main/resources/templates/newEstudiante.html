@@ -6,7 +6,7 @@
     <div th:insert="~{fragments/general.html :: estilo}"></div>
     <div class="row mb-4">
         <div class="col-md-6 offset-md-3">
-            <h2>Editar estudiante</h2>
+            <h2>nuevo estudiante</h2>
             <hr/>
             <form method="post" th:action="@{'/estudiante/save'}" th:object="${usuario}">
                 <input th:field="*{id}" type="hidden"/>
@@ -39,7 +39,7 @@
                     <input th:field="*{password}" type="password" class="form-control"/>
                 </div>
                 <a th:href="@{'/estudiante/lista'}" class="btn btn-danger">Cancelar</a>
-                <button type="submit" class="btn btn-primary">editar</button>
+                <button type="submit" class="btn btn-primary">crear</button>
             </form>
         </div>
     </div>

@@ -59,6 +59,8 @@ public class EstudianteController {
             if (usuario.getId() == 0) {
 
                     attr.addFlashAttribute("msg", "usuario creado exitosamente");
+                    usuario.setActivo(true);
+                    usuario.setRolid(5);
                     usuarioRepository.save(usuario);
                     return "redirect:/estudiante";
             } else {

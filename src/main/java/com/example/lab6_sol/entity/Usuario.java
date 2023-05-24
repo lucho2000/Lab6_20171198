@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 @Table(name = "usuario")
@@ -17,12 +18,12 @@ public class Usuario {
 
 
     @NotBlank
-    @Size(max = 100,min=30 , message = "El nombre no puede tener mas de 100 caracteres")
+    @Size(max = 100,min=3 , message = "El nombre no puede tener mas de 100 caracteres")
     @Column(nullable = false)
     private String nombres;
 
     @NotBlank
-    @Size(max = 100,min=30 , message = "El apellido no puede tener mas de 100 caracteres")
+    @Size(max = 100,min=3 , message = "El apellido no puede tener mas de 100 caracteres")
     @Column(nullable = false)
     private String apellidos;
 
@@ -32,7 +33,7 @@ public class Usuario {
     private String dni;
 
     @Positive
-    @Digits(integer = 1, fraction = 0)
+    @NumberFormat
     @Column(nullable = false)
     private int edad;
 
