@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{fragments/general.html :: estilo}"></div>
+<body>
+<div class="container">
+    <div th:insert="~{fragments/general.html :: estilo}"></div>
+    <div class="row mb-4">
+        <div class="col-md-6 offset-md-3">
+            <h2>Editar estudiante</h2>
+            <hr/>
+            <form method="post" th:action="@{'/estudiante/save'}" th:object="${usuario}">
+                <input th:field="*{id}" type="hidden"/>
+                <div class="mb-3">
+                    <label class="form-label">Nombres</label>
+                    <input th:field="*{nombres}" th:classappend="${#fields.hasErrors('nombres')?'is-invalid':''}" type="text" class="form-control"/>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">apellidos</label>
+                    <input th:field="*{apellidos}" th:classappend="${#fields.hasErrors('apellidos')?'is-invalid':''}" type="text" class="form-control"/>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">DNI</label>
+                    <input th:field="*{dni}" type="text" class="form-control" th:classappend="${#fields.hasErrors('dni')?'is-invalid':''}"/>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">edad</label>
+                    <input th:field="*{edad}" type="text" class="form-control" th:classappend="${#fields.hasErrors('edad')?'is-invalid':''}"/>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">correo</label>
+                    <input th:field="*{correo}" type="email" class="form-control"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">contraseña</label>
+                    <input th:field="*{password}" type="password" class="form-control"/>
+                </div>
+                <a th:href="@{'/estudiante/lista'}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">editar</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
